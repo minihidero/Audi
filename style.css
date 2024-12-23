@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+/* Шапка */
+header {
+    background-color: #111;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+header .logo img {
+    width: 50px;
+    height: auto;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    font-size: 1.1rem;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+    background-color: #e63946;
+    transform: scale(1.05);
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 30px;
+}
+section img {
+    margin: 0 15px 15px 0; /* Отступ справа и снизу */
+    float: left;
+}
+section p {
+    margin: 0;
+}
+
+/* Главный контент */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+main h2 {
+    font-size: 2.6rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #111;
+}
+
+.question {
+    margin-bottom: 25px;
+}
+
+.question legend {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="radio"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-top: 8px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+    border-color: #e63946;
+}
+
+input[type="radio"] {
+    width: auto;
+}
+
+input.error,
+input[type="text"].error,
+input[type="number"].error,
+input[type="date"].error {
+    border-color: #f80015; /* Красный цвет рамки при ошибке */
+    background-color: #ffe6e6; /* Легкий красноватый фон */
+}
+
+.error-message {
+    color: #f80015; /* Красный цвет текста ошибки */
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e63946;
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+#error-message {
+    color: #f80015;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Анимация для главного контента */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Футер */
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 30px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #e63946;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+/* Галерея */
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 100%;
+    height: 450px; /* Задайте фиксированную высоту */
+    background: #000; /* Фон для галереи */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Текст внизу */
+    align-items: center;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 70%;
+    object-fit: cover;
+    margin-bottom: 15px; /* Отступ для текста */
+}
+
+.slide-description {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 90%; /* Ширина текста */
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+button.prev:hover,
+button.next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+#slide-info {
+    position: absolute;
+    bottom: 20px;
+    color: white;
+    font-size: 1.1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+
+/* Словарь */
+#vvod2 {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+#vvod2:focus {
+    border-color: #e63946;
+}
+
+#vyvvod {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#vyvvod li {
+    padding: 12px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#vyvvod li:hover {
+    background-color: #e63946;
+    color: white;
+}
+
